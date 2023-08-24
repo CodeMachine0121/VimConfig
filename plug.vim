@@ -40,7 +40,15 @@ Plug 'arcticicestudio/nord-vim'
 
 " airline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+
+" coci 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" syntax  highlighting 
+Plug 'sheerun/vim-polyglot'
+
+" Project Manager
+Plug 'tpope/vim-projectionist'
 
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -66,12 +74,10 @@ nmap <F8> :TagbarToggle<CR>
 nmap <space> <Plug>(easymotion-bd-f)
 
 "theme
-set t_Co=256   " This is may or may not needed.
-set background=dark
 colorscheme PaperColor
 
 " airline
-let g:airline_statusline_ontop=1
+"let g:airline_statusline_ontop=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 let g:airline_theme='nord'
@@ -80,3 +86,5 @@ nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
 nnoremap <Leader>w :bd<CR>
 
+" coc config
+source ~/.vim/CocConfig/config.vim

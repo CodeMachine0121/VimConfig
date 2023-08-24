@@ -1,16 +1,11 @@
-set fileencoding=utf-8
-set ff=unix
-set mouse=a
-autocmd FileType vim setlocal fileformat=unix
-set fileformat=unix
 source ~/.vim/plug.vim
+set mouse=a
 set rnu
 set encoding=UTF-8
+set wrap linebreak
 " Reload config
-nmap zso : source ~/.vimrc
+nmap zso : source ~/.vimrc<CR>
 
-" Load the colorscheme
-set background=dark
 
 " [Edit]
 syntax on
@@ -29,6 +24,8 @@ nmap hh ^
 nmap ll $
 map <C-right> w
 map <C-left> b
+" back where go definition is set in coc-config
+map zb  <C-o>
 
 
 " select suggestion
@@ -58,4 +55,5 @@ imap zrt <Esc>hhireturn <Esc>z;
 
 set clipboard=unnamedplus
 set visualbell
+
 
