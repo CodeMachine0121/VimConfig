@@ -48,10 +48,10 @@ nmap  zb <Plug>(coc-diagnostic-prev)
 nmap  zp <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
-nmap  zgd <Plug>(coc-definition)
+nnoremap  <F12> <Plug>(coc-definition)
 nmap  zgy <Plug>(coc-type-definition)
-nmap  zgi <Plug>(coc-implementation)
-nmap  zgr <Plug>(coc-references)
+nnoremap  <C-F12> <Plug>(coc-implementation)
+nnoremap  <F11> <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -71,8 +71,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F2> <Plug>(coc-rename)
 
 " Formatting selected code
-xmap zef  <Plug>(coc-format-selected)
-nmap zef  <Plug>(coc-format-selected)
+xmap <C-e>f  <Plug>(coc-format-selected)
+nnoremap <C-e>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
