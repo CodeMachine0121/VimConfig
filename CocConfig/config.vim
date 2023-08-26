@@ -48,10 +48,10 @@ nmap  zb <Plug>(coc-diagnostic-prev)
 nmap  zp <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
-nnoremap  <F12> <Plug>(coc-definition)
+nnoremap  zgd  <Plug>(coc-definition)
 nmap  zgy <Plug>(coc-type-definition)
-nnoremap  <C-F12> <Plug>(coc-implementation)
-nnoremap  <F11> <Plug>(coc-references)
+nnoremap  zgi  <Plug>(coc-implementation)
+nnoremap  zgf <Plug>(coc-references
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -71,8 +71,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F2> <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <C-e>f  <Plug>(coc-format-selected)
-nnoremap <C-e>f  <Plug>(coc-format-selected)
+xmap <C-e>f  <Plug>(coc-format-selected)<CR>
+nnoremap <C-e>f  <Plug>(coc-format-selected)<CR>
 
 augroup mygroup
   autocmd!
@@ -84,8 +84,8 @@ augroup end
 
 " Applying code actions to the selected code block
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
+nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 nmap zac  <Plug>(coc-codeaction-cursor)
 nmap zas  <Plug>(coc-codeaction-source)
 
