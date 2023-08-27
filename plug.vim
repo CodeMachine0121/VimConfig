@@ -1,4 +1,6 @@
 call plug#begin()
+" startify
+Plug 'mhinz/vim-startify'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
@@ -26,12 +28,14 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 " theme
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'nikolvs/vim-sunbather'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
 " airline
 Plug 'vim-airline/vim-airline'
 " coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " syntax  highlighting 
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 " Project Manager
 Plug 'tpope/vim-projectionist'
 " 查找文件和搜索的工具
@@ -48,7 +52,6 @@ Plug 'jiangmiao/auto-pairs'
 " line move
 Plug 'matze/vim-move'
 " suggetion command in vim
-
 if has('nvim')
   function! UpdateRemotePlugins(...)
     " Needed to refresh runtime files
@@ -63,19 +66,22 @@ else
   " To use Python remote plugin features in Vim, can be skipped
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'https://github.com/charlespascoe/vim-go-syntax'
 endif
 
+" onedark theme
+Plug 'https://github.com/joshdick/onedark.vim.git'
 "" - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
 " You can revert the settings after the call like so:
 filetype indent off   " Disable file-type-specific indentation
-syntax on            " Disable syntax highlighting
 
 "NERD
 let NERDTreeShowHidden=1
 nmap <Leader>r :NERDTreeRefreshRoot <CR>
 nmap <Leader>f :NERDTreeFind<CR>
 nmap <F5> :NERDTreeToggle <CR>
+let NERDTreeChDirMode = 2
 " Start NERDTree and leave the cursor in it.
 "autocmd VimEnter * NERDTree
 " default: git (auto find in path)
@@ -89,10 +95,15 @@ nmap <F8> :TagbarToggle<CR>
 nmap <space> <Plug>(easymotion-bd-f)
 
 "theme
-colorscheme PaperColor
+"colorscheme sunbathe
+syntax on 
+colorscheme onedark 
+
+
 
 " airline
 "let g:airline_statusline_ontop=1
+let g:airline_theme='purify'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 "" buffer
@@ -124,4 +135,4 @@ call wilder#setup({
       \ 'previous_key': '<S-Tab>',
       \ 'accept_key': '<Down>',
       \ 'reject_key': '<Up>',
-      \ })
+	  \})
