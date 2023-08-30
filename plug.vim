@@ -136,3 +136,6 @@ call wilder#setup({
       \ 'accept_key': '<Down>',
       \ 'reject_key': '<Up>',
 	  \})
+
+" vim-go
+let g:go_gopls_enabled = 0

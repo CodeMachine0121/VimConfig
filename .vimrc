@@ -1,4 +1,5 @@
 source ~/.vim/plug.vim
+source ~/.vim/csharpConfig/config.vim
 set mouse=a
 set rnu
 set encoding=UTF-8
@@ -9,6 +10,13 @@ nmap zso : source ~/.vimrc<CR>
 
 " [Edit]
 syntax on
+set showcmd
+set autoindent
+set nowrap
+set incsearch
+set cindent
+set smartindent
+set cursorline
 syntax enable
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
