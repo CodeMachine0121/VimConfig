@@ -42,7 +42,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'sheerun/vim-polyglot'
 " Project Manager
 Plug 'tpope/vim-projectionist'
-" 查找文件和搜索的工具
+" 查找文件和搜索的工具, use apt, brew or winget install the_silver_searcher also
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " go lang
