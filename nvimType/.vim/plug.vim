@@ -1,9 +1,7 @@
 call plug#begin()
-
+Plug 'github/copilot.vim'
 " Plug
 Plug 'sindrets/diffview.nvim'
-" startify
-Plug 'mhinz/vim-startify'
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
@@ -15,13 +13,8 @@ Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }|
 			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
             \ Plug 'ryanoasis/vim-devicons'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Using a non-default branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 " tag bar
 Plug 'majutsushi/tagbar'
 " jump
@@ -39,7 +32,7 @@ Plug 'vim-airline/vim-airline'
 " coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " syntax  highlighting 
-"Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " Project Manager
 Plug 'tpope/vim-projectionist'
 " 查找文件和搜索的工具, use apt, brew or winget install the_silver_searcher also
@@ -68,8 +61,7 @@ else
   Plug 'gelguy/wilder.nvim'
 
   " To use Python remote plugin features in Vim, can be skipped
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+"  Plug 'roxma/nvim-yarp'
   Plug 'https://github.com/charlespascoe/vim-go-syntax'
 endif
 
@@ -140,8 +132,4 @@ call wilder#setup({
       \ 'accept_key': '<Down>',
       \ 'reject_key': '<Up>',
 	  \})
-
-" vim-go
-let g:go_gopls_enabled = 0
-
 

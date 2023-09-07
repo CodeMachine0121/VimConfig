@@ -91,7 +91,7 @@ nmap zas  <Plug>(coc-codeaction-source)
 
 
 " Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap zqf  <Plug>(coc-fix-current)
+nmap <leader>q  <Plug>(coc-fix-current)
 
 
 " Remap keys for applying refactor code actions
