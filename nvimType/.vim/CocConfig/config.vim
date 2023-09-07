@@ -44,8 +44,8 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-nmap  zb <Plug>(coc-diagnostic-prev)
-nmap  zp <Plug>(coc-diagnostic-next)
+nmap  zp <Plug>(coc-diagnostic-prev)
+nmap  zn <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
 nnoremap  zgd  <Plug>(coc-definition)
@@ -86,8 +86,8 @@ augroup end
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
-nmap zac  <Plug>(coc-codeaction-cursor)
-nmap zas  <Plug>(coc-codeaction-source)
+nmap <leader>a  <Plug>(coc-codeaction-cursor)
+nmap <leader>a  <Plug>(coc-codeaction-source)
 
 
 " Apply the most preferred quickfix action to fix diagnostic on the current line

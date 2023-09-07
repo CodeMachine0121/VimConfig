@@ -1,4 +1,8 @@
 call plug#begin()
+Plug 'f-person/git-blame.nvim'
+Plug 'zivyangll/git-blame.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'NeogitOrg/neogit'
 Plug 'github/copilot.vim'
 " Plug
 Plug 'sindrets/diffview.nvim'
@@ -132,4 +136,7 @@ call wilder#setup({
       \ 'accept_key': '<Down>',
       \ 'reject_key': '<Up>',
 	  \})
-
+"NeoGit
+source ~/.config/nvim/.vim/NeoGitConfig/config.lua
+" Git blamer
+nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
