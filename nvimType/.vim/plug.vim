@@ -1,4 +1,9 @@
 call plug#begin()
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'mhinz/vim-startify'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'f-person/git-blame.nvim'
 Plug 'zivyangll/git-blame.vim'
 Plug 'nvim-lua/plenary.nvim'
@@ -40,8 +45,8 @@ Plug 'sheerun/vim-polyglot'
 " Project Manager
 Plug 'tpope/vim-projectionist'
 " 查找文件和搜索的工具, use apt, brew or winget install the_silver_searcher also
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 " go lang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " rainbow 
@@ -140,3 +145,19 @@ call wilder#setup({
 source ~/.config/nvim/.vim/NeoGitConfig/config.lua
 " Git blamer
 nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
+
+"Refactor
+source ~/.config/nvim/.vim/RefactorConfig/config.lua
+source ~/.config/nvim/.vim/PlenaryConfig/plenary.lua
+
+"Treesitter
+au VimEnter * TSEnable  highlight
+au VimEnter * TSEnable  indent
+au VimEnter * TSEnable  incremental_selection
+" web icon
+source ~/.config/nvim/.vim/DevIconsConfig/config.lua
+" wilder
+source ~/.config/nvim/.vim/WilderConfig/config.vim
+" Telescope
+nnoremap <C-t> :Telescope find_files <CR>
+nnoremap <C-f> :Telescope live_grep <CR>
