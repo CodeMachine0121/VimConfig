@@ -1,4 +1,3 @@
-
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
@@ -93,7 +92,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 
 " Remap keys for applying refactor code actions
-nmap zre <Plug>(coc-codeaction-refactor)
+nmap zrf <Plug>(coc-codeaction-refactor)
 xmap zr  <Plug>(coc-codeaction-refactor-selected)
 nmap zr  <Plug>(coc-codeaction-refactor-selected)
 

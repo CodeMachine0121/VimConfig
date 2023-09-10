@@ -161,3 +161,4 @@ source ~/.config/nvim/.vim/WilderConfig/config.vim
 " Telescope
 nnoremap <C-t> :Telescope find_files <CR>
 nnoremap <C-f> :Telescope live_grep <CR>
+source ~/.config/nvim/.vim/TelescopeConfig/config.lua
