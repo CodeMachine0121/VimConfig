@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'sainnhe/everforest'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'mhinz/vim-startify'
@@ -9,55 +10,36 @@ Plug 'zivyangll/git-blame.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'NeogitOrg/neogit'
 Plug 'github/copilot.vim'
-" Plug
 Plug 'sindrets/diffview.nvim'
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-" Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-" Multiple Plug commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" On-demand loading
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }|
-			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }|
+"			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
+"            \ Plug 'ryanoasis/vim-devicons'
 Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
-" Using a non-default branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" tag bar
 Plug 'majutsushi/tagbar'
-" jump
 Plug 'easymotion/vim-easymotion'
-" markdown 
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-" theme
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'nikolvs/vim-sunbather'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
-" airline
 Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-" coc 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" syntax  highlighting 
 Plug 'sheerun/vim-polyglot'
-" Project Manager
 Plug 'tpope/vim-projectionist'
 " 查找文件和搜索的工具, use apt, brew or winget install the_silver_searcher also
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
 " go lang
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-" rainbow 
 Plug 'frazrepo/vim-rainbow'
-" highlight words
 Plug 'lfv89/vim-interestingwords'
-"auto pair
 Plug 'jiangmiao/auto-pairs'
-" line move
 Plug 'matze/vim-move'
-" suggetion command in vim
 if has('nvim')
   function! UpdateRemotePlugins(...)
     " Needed to refresh runtime files
@@ -74,22 +56,26 @@ else
   Plug 'https://github.com/charlespascoe/vim-go-syntax'
 endif
 
-" onedark theme
-Plug 'https://github.com/joshdick/onedark.vim.git'
 "" - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
 " You can revert the settings after the call like so:
 filetype indent off   " Disable file-type-specific indentation
 
 "NERD
-let NERDTreeShowHidden=1
-nmap <Leader>r :NERDTreeRefreshRoot <CR>
-nmap <Leader>f :NERDTreeFind<CR>
-nmap <Leader>F :NERDTreeToggle <CR>
-let NERDTreeChDirMode = 2
-" Start NERDTree and leave the cursor in it.
+"let NERDTreeShowHidden=1
+"nmap <Leader>r :NERDTreeRefreshRoot <CR>
+"nmap <Leader>f :NERDTreeFind<CR>
+"nmap <Leader>F :NERDTreeToggle <CR>
+"let NERDTreeChDirMode = 2
 "autocmd VimEnter * NERDTree
-" default: git (auto find in path)
+
+source ~/.config/nvim/.vim/Nvim-Tree-Config/config.lua
+nnoremap <Leader>F :NvimTreeToggle<CR>
+nnoremap <Leader>f :NvimTreeFindFile<CR>
+nnoremap <Leader>r :NvimTreeRefresh<CR>
+
+
+"default: git (auto find in path)
 let g:NERDTreeGitStatusGitBinPath = '/usr/bin/git' 
 let g:NERDTreeGitStatusShowClean = 1 " default: 0
 
@@ -102,13 +88,14 @@ nmap <space> <Plug>(easymotion-bd-f)
 "theme
 "colorscheme sunbathe
 syntax on 
-colorscheme onedark 
+set background=dark
+colorscheme everforest 
 
 
 
 " airline
 "let g:airline_statusline_ontop=1
-let g:airline_theme='purify'
+let g:airline_theme='everforest'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 "" buffer
@@ -159,6 +146,10 @@ source ~/.config/nvim/.vim/DevIconsConfig/config.lua
 " wilder
 source ~/.config/nvim/.vim/WilderConfig/config.vim
 " Telescope
-nnoremap <C-t> :Telescope find_files <CR>
-nnoremap <C-f> :Telescope live_grep <CR>
+nnoremap <leader>ff :Telescope find_files <CR>
+nnoremap <leader>fw :Telescope live_grep <CR>
 source ~/.config/nvim/.vim/TelescopeConfig/config.lua
+
+"vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
