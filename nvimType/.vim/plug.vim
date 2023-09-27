@@ -1,48 +1,53 @@
 call plug#begin()
-Plug 'sainnhe/everforest'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.2' }
+Plug 'rose-pine/neovim'
+
+"Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
+" UI or Theme
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'mhinz/vim-startify'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'ThePrimeagen/refactoring.nvim'
-Plug 'f-person/git-blame.nvim'
-Plug 'zivyangll/git-blame.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'NeogitOrg/neogit'
-Plug 'github/copilot.vim'
-Plug 'sindrets/diffview.nvim'
-Plug 'junegunn/vim-easy-align'
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'nvim-tree/nvim-tree.lua'
-"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }|
-"			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
-"            \ Plug 'ryanoasis/vim-devicons'
-Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'majutsushi/tagbar'
-Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'nikolvs/vim-sunbather'
-Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'frazrepo/vim-rainbow'
 Plug 'vim-airline/vim-airline'
+Plug 'nikolvs/vim-sunbather'
+Plug 'sainnhe/everforest'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+
+" git status
+Plug 'f-person/git-blame.nvim'
+Plug 'sindrets/diffview.nvim'
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Code Complete or Code Style
+Plug 'github/copilot.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-projectionist'
-" 查找文件和搜索的工具, use apt, brew or winget install the_silver_searcher also
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'junegunn/vim-easy-align'
+Plug 'jiangmiao/auto-pairs'
+
+" Files Operations
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-" go lang
+
+" Move
+Plug 'easymotion/vim-easymotion'
+
+" Program Language
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'frazrepo/vim-rainbow'
-Plug 'lfv89/vim-interestingwords'
-Plug 'jiangmiao/auto-pairs'
-Plug 'matze/vim-move'
+Plug 'preservim/vim-markdown'
+
+" File Format
+Plug 'godlygeek/tabular'
+
+
+" Vim IDE Related
+Plug 'majutsushi/tagbar'
 if has('nvim')
   function! UpdateRemotePlugins(...)
-    " Needed to refresh runtime files
     let &rtp=&rtp
     UpdateRemotePlugins
   endfunction
@@ -50,28 +55,15 @@ if has('nvim')
   Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
 else
   Plug 'gelguy/wilder.nvim'
-
-  " To use Python remote plugin features in Vim, can be skipped
-"  Plug 'roxma/nvim-yarp'
   Plug 'https://github.com/charlespascoe/vim-go-syntax'
 endif
-
-"" - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
-" You can revert the settings after the call like so:
-filetype indent off   " Disable file-type-specific indentation
 
-"NERD
-"let NERDTreeShowHidden=1
-"nmap <Leader>r :NERDTreeRefreshRoot <CR>
-"nmap <Leader>f :NERDTreeFind<CR>
-"nmap <Leader>F :NERDTreeToggle <CR>
-"let NERDTreeChDirMode = 2
-"autocmd VimEnter * NERDTree
 
+filetype indent off
 source ~/.config/nvim/.vim/Nvim-Tree-Config/config.lua
 nnoremap <Leader>F :NvimTreeToggle<CR>
-nnoremap <Leader>f :NvimTreeFindFile<CR>
+nnoremap zcf :NvimTreeFindFile<CR>
 nnoremap <Leader>r :NvimTreeRefresh<CR>
 
 
@@ -128,14 +120,6 @@ call wilder#setup({
       \ 'accept_key': '<Down>',
       \ 'reject_key': '<Up>',
 	  \})
-"NeoGit
-source ~/.config/nvim/.vim/NeoGitConfig/config.lua
-" Git blamer
-nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
-
-"Refactor
-source ~/.config/nvim/.vim/RefactorConfig/config.lua
-source ~/.config/nvim/.vim/PlenaryConfig/plenary.lua
 
 "Treesitter
 au VimEnter * TSEnable  highlight
@@ -148,8 +132,12 @@ source ~/.config/nvim/.vim/WilderConfig/config.vim
 " Telescope
 nnoremap <leader>ff :Telescope find_files <CR>
 nnoremap <leader>fw :Telescope live_grep <CR>
-source ~/.config/nvim/.vim/TelescopeConfig/config.lua
+"source ~/.config/nvim/.vim/TelescopeConfig/plenary.lua
+"source ~/.config/nvim/.vim/TelescopeConfig/config.lua
 
 "vim-go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+
+" jumps
+nnoremap zjf :Jumps<CR>
