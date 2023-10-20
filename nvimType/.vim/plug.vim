@@ -17,6 +17,7 @@ Plug 'sainnhe/everforest'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 " git status
+Plug 'kdheepak/lazygit.nvim'
 Plug 'f-person/git-blame.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -38,13 +39,22 @@ Plug 'easymotion/vim-easymotion'
 
 " Program Language
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'hexdigest/gounit-vim'
 Plug 'preservim/vim-markdown'
+Plug 'darthmall/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
 " File Format
 Plug 'godlygeek/tabular'
 
 
 " Vim IDE Related
+Plug 'Pocco81/auto-save.nvim'
+Plug 'leafOfTree/vim-matchtag'
 Plug 'majutsushi/tagbar'
 if has('nvim')
   function! UpdateRemotePlugins(...)
@@ -132,8 +142,6 @@ source ~/.config/nvim/.vim/WilderConfig/config.vim
 " Telescope
 nnoremap <leader>ff :Telescope find_files <CR>
 nnoremap <leader>fw :Telescope live_grep <CR>
-"source ~/.config/nvim/.vim/TelescopeConfig/plenary.lua
-"source ~/.config/nvim/.vim/TelescopeConfig/config.lua
 
 "vim-go
 let g:go_def_mode='gopls'
@@ -141,3 +149,8 @@ let g:go_info_mode='gopls'
 
 " jumps
 nnoremap zjf :Jumps<CR>
+
+" highlight
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+

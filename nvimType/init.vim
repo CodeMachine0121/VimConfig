@@ -1,4 +1,6 @@
+source ~/.config/nvim/golang/template.vim
 source ~/.config/nvim/.vim/plug.vim
+set langmenu=en_US.UTF-8
 set mouse=a
 set rnu
 set encoding=UTF-8
@@ -8,6 +10,7 @@ nmap zso : source ~/.config/nvim/init.vim<CR>
 
 
 " [Edit]
+syntax enable
 syntax on
 set showcmd
 set autoindent

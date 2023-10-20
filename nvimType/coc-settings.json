@@ -1,0 +1,13 @@
+{
+	"vetur.trace.server": "verbose",
+	
+	"vetur.format.options.tabSize": 4,
+	"vetur.format.options.useTabs": true,
+	"vetur.format.defaultFormatterOptions": {
+		"prettier": {
+			"singleQuote": true,
+			"semi": false,
+			"trailingComma": "es6"
+		}
+	}
+}

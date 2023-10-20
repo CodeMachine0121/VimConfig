@@ -50,7 +50,7 @@ nmap  zn <Plug>(coc-diagnostic-next)
 nnoremap  zgd  <Plug>(coc-definition)
 nmap  zgy <Plug>(coc-type-definition)
 nnoremap  zgi  <Plug>(coc-implementation)
-nnoremap  zgf <Plug>(coc-references
+nnoremap  zgf <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
